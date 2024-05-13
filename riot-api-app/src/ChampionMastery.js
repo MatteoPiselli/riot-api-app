@@ -16,7 +16,7 @@ function ChampionMastery() {
     try {
       const response = await axios.get(`https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/${summonerId}`, {
         headers: {
-          'X-Riot-Token': 'RGAPI-b5ed8080-e9bf-40a6-9612-01994fe0d7b7', //MA CLE API RIOT
+          'X-Riot-Token': 'RGAPI-b5ed8080-e9bf-40a6-9612-01994fe0d7b7', //MA CLE API RIOT   
         },
       });
       setData(response.data);
