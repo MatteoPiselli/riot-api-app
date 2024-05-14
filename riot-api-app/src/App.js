@@ -1,14 +1,12 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import logo from './logo.svg';
 import './App.css';
 import ChampionMastery from './ChampionMastery';
 
 function App() {
-  const [searchText, setSearchText] = useState("");
   const [playerData, setPlayerData] = useState("");
   const AccountId = "vwO_17sqcbtaCl7gu1PNmC12hYwEQKIKLsZG5CmmObHOEbBpuyzk_rUF";
-  const API_KEY = "RGAPI-b5ed8080-e9bf-40a6-9612-01994fe0d7b7";
+  const API_KEY = "RGAPI-593c191e-3c80-41a0-acfe-18ac2f8ebf26";
   
   function searchForPlayer(event) {
     // Set up the correct API call
@@ -31,15 +29,15 @@ function App() {
       <h1>Application utilisant l'API de Riot Games</h1>
       <ChampionMastery />
       <div className="container">
-        <h5>League of Legends Player Seacher</h5>
-        <input type="text" onChange={e => setSearchText(e.target.value)}></input>
+        <h3>League of Legends Player Seacher</h3>
+        <input type="text" onChange={e => setPlayerData(e.target.value)}></input>
         <button onClick={e => searchForPlayer(e)}>Search player</button>
       </div>
       {JSON.stringify(playerData)  != '{}' ? 
       <>
         <p>{playerData.name}</p> 
-        <img width="100" height="100" src={"https://ddragon.leagueoflegends.com/cdn/14.9.1/img/profileicon/" + playerData.profileIconID + ".png"}></img>
-        <p>Summoner level {playerData.summonerLevel}</p>
+        <img width="100" height="100" title="profile icon" src={"https://ddragon.leagueoflegends.com/cdn/14.9.1/img/profileicon/" + playerData.profileIconId + ".png"}></img>
+        <p>Summoner level : {playerData.summonerLevel}</p>
       </> 
       : 
       <>
